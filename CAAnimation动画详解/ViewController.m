@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import "BasicAnimationViewController.h"
+#import "SpringAnimationViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic,strong)UITableView * AnimationTableView;
-@property (nonatomic,strong)NSArray * AnimationArray;
+@property (nonatomic,strong)UITableView * animationTableView;
+@property (nonatomic,strong)NSArray * animationArray;
 
 @end
 
@@ -20,24 +21,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self.view addSubview:self.AnimationTableView];
+    [self.view addSubview:self.animationTableView];
 }
-- (UITableView *)AnimationTableView{
-    if (_AnimationTableView == nil) {
-        _AnimationTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _AnimationTableView.delegate = self;
-        _AnimationTableView.dataSource = self;
+- (UITableView *)animationTableView{
+    if (_animationTableView == nil) {
+        _animationTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _animationTableView.delegate = self;
+        _animationTableView.dataSource = self;
     }
-    return _AnimationTableView;
+    return _animationTableView;
 }
-- (NSArray *)AnimationArray{
-    if (_AnimationArray == nil) {
-        _AnimationArray = [NSArray arrayWithObjects:@"basicAnimation",@"SpringAnimation", nil];
+- (NSArray *)animationArray{
+    if (_animationArray == nil) {
+        _animationArray = [NSArray arrayWithObjects:@"basicAnimation",@"SpringAnimation", nil];
     }
-    return _AnimationArray;
+    return _animationArray;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.AnimationArray.count;
+    return self.animationArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
@@ -45,13 +46,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString * identifier = @"AnimationCell";
     UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    cell.textLabel.text = self.AnimationArray[indexPath.row];
+    cell.textLabel.text = self.animationArray[indexPath.row];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
+    if (indexPath.row == 0)
+    {
         BasicAnimationViewController * basicAnimation = [[BasicAnimationViewController alloc]init];
         [self.navigationController pushViewController:basicAnimation animated:YES];
+    }else if (indexPath.row == 1)
+    {
+        SpringAnimationViewController * springAnimation = [[SpringAnimationViewController alloc]init];
+        [self.navigationController pushViewController:springAnimation animated:YES];
     }
 }
 

@@ -1,5 +1,7 @@
 ### BasicAnimation
 
+![animation](./Animation.gif)
+
 1、keyPath
 
        rotation 旋轉
@@ -102,4 +104,3 @@
     [animation setFillMode:kCAFillModeBoth];
     [self.redView.layer addAnimation:animation forKey:@"basicAnimation"];
 
-![animation](./Animation.gif)

@@ -15,6 +15,7 @@
 		5D5B2ACB1FBB18EB00498E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D5B2AC91FBB18EB00498E7C /* LaunchScreen.storyboard */; };
 		5D5B2ACE1FBB18EB00498E7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2ACD1FBB18EB00498E7C /* main.m */; };
 		5D5B2AD61FBBD00800498E7C /* BasicAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AD51FBBD00800498E7C /* BasicAnimationViewController.m */; };
+		5D5B2AD91FBC13D900498E7C /* SpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AD81FBC13D900498E7C /* SpringAnimationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		5D5B2ACD1FBB18EB00498E7C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5D5B2AD41FBBD00800498E7C /* BasicAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicAnimationViewController.h; sourceTree = "<group>"; };
 		5D5B2AD51FBBD00800498E7C /* BasicAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicAnimationViewController.m; sourceTree = "<group>"; };
+		5D5B2AD71FBC13D900498E7C /* SpringAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpringAnimationViewController.h; sourceTree = "<group>"; };
+		5D5B2AD81FBC13D900498E7C /* SpringAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpringAnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				5D5B2ABF1FBB18EB00498E7C /* ViewController.m */,
 				5D5B2AD41FBBD00800498E7C /* BasicAnimationViewController.h */,
 				5D5B2AD51FBBD00800498E7C /* BasicAnimationViewController.m */,
+				5D5B2AD71FBC13D900498E7C /* SpringAnimationViewController.h */,
+				5D5B2AD81FBC13D900498E7C /* SpringAnimationViewController.m */,
 				5D5B2AC11FBB18EB00498E7C /* Main.storyboard */,
 				5D5B2AC71FBB18EB00498E7C /* Assets.xcassets */,
 				5D5B2AC91FBB18EB00498E7C /* LaunchScreen.storyboard */,
@@ -150,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5B2AD91FBC13D900498E7C /* SpringAnimationViewController.m in Sources */,
 				5D5B2AC01FBB18EB00498E7C /* ViewController.m in Sources */,
 				5D5B2AC61FBB18EB00498E7C /* CAAnimation____.xcdatamodeld in Sources */,
 				5D5B2AD61FBBD00800498E7C /* BasicAnimationViewController.m in Sources */,
