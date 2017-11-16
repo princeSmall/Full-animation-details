@@ -79,3 +79,47 @@
           damping: 弹簧效果
           springVelocity: 初始速度
           options: 过度效果
+          
+          
+### keyFrameAnimation
+
+draw  a curve
+
+    keyFrame：
+    path：路径
+    duration：单次时间
+    rotationMode：旋转样式
+    repeatCount：重复次数
+   
+1、弧形
+ 
+    - (void)addArcWithCenter:(CGPoint)center radius:(CGFloat)radius startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle clockwise:(BOOL)clockwise ;
+    center ： 弧形的中心
+    radius： 弧形的半径
+    startAngle：弧形开始弧度
+    endAngle：弧形结束弧度
+    colockwise：顺逆时针
+ 
+2、抛物线
+
+    - (void)moveToPoint:(CGPoint)point
+    - (void)addQuadCurveToPoint:(CGPoint)endPoint controlPoint:(CGPoint)controlPoint;
+    point：开始位置
+    endPoint：结束位置
+    controlPoint：拐点位置
+ 
+3、椭圆形
+ 
+    + (instancetype)bezierPathWithOvalInRect:(CGRect)rect;
+    rect： x起点
+           y起点
+           width宽度
+           height高度
+          
+4、圆形
+
+    rect：
+    width = height
+ 
+   
+ 
