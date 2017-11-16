@@ -16,6 +16,8 @@
 		5D5B2ACE1FBB18EB00498E7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2ACD1FBB18EB00498E7C /* main.m */; };
 		5D5B2AD61FBBD00800498E7C /* BasicAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AD51FBBD00800498E7C /* BasicAnimationViewController.m */; };
 		5D5B2AD91FBC13D900498E7C /* SpringAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AD81FBC13D900498E7C /* SpringAnimationViewController.m */; };
+		5D5B2ADC1FBC38B000498E7C /* TransformAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2ADB1FBC38B000498E7C /* TransformAnimationViewController.m */; };
+		5D5B2ADF1FBD19E200498E7C /* KeyFrameAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2ADE1FBD19E200498E7C /* KeyFrameAnimationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		5D5B2AD51FBBD00800498E7C /* BasicAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicAnimationViewController.m; sourceTree = "<group>"; };
 		5D5B2AD71FBC13D900498E7C /* SpringAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpringAnimationViewController.h; sourceTree = "<group>"; };
 		5D5B2AD81FBC13D900498E7C /* SpringAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpringAnimationViewController.m; sourceTree = "<group>"; };
+		5D5B2ADA1FBC38B000498E7C /* TransformAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformAnimationViewController.h; sourceTree = "<group>"; };
+		5D5B2ADB1FBC38B000498E7C /* TransformAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformAnimationViewController.m; sourceTree = "<group>"; };
+		5D5B2ADD1FBD19E200498E7C /* KeyFrameAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyFrameAnimationViewController.h; sourceTree = "<group>"; };
+		5D5B2ADE1FBD19E200498E7C /* KeyFrameAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyFrameAnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,10 @@
 				5D5B2AD51FBBD00800498E7C /* BasicAnimationViewController.m */,
 				5D5B2AD71FBC13D900498E7C /* SpringAnimationViewController.h */,
 				5D5B2AD81FBC13D900498E7C /* SpringAnimationViewController.m */,
+				5D5B2ADD1FBD19E200498E7C /* KeyFrameAnimationViewController.h */,
+				5D5B2ADE1FBD19E200498E7C /* KeyFrameAnimationViewController.m */,
+				5D5B2ADA1FBC38B000498E7C /* TransformAnimationViewController.h */,
+				5D5B2ADB1FBC38B000498E7C /* TransformAnimationViewController.m */,
 				5D5B2AC11FBB18EB00498E7C /* Main.storyboard */,
 				5D5B2AC71FBB18EB00498E7C /* Assets.xcassets */,
 				5D5B2AC91FBB18EB00498E7C /* LaunchScreen.storyboard */,
@@ -159,7 +169,9 @@
 				5D5B2AC01FBB18EB00498E7C /* ViewController.m in Sources */,
 				5D5B2AC61FBB18EB00498E7C /* CAAnimation____.xcdatamodeld in Sources */,
 				5D5B2AD61FBBD00800498E7C /* BasicAnimationViewController.m in Sources */,
+				5D5B2ADC1FBC38B000498E7C /* TransformAnimationViewController.m in Sources */,
 				5D5B2ACE1FBB18EB00498E7C /* main.m in Sources */,
+				5D5B2ADF1FBD19E200498E7C /* KeyFrameAnimationViewController.m in Sources */,
 				5D5B2ABD1FBB18EB00498E7C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

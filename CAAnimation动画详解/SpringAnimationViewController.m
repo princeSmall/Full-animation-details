@@ -24,6 +24,11 @@
     [self.view addSubview:self.redView];
     // Do any additional setup after loading the view.
 }
+/**
+ 懒加载生成对象
+ 
+ @return tableView，array，view
+ */
 - (UITableView *)springAnimationTableView{
     if (_springAnimationTableView == nil) {
         _springAnimationTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,200, self.view.frame.size.height) style:UITableViewStylePlain];
@@ -102,7 +107,6 @@
  
  */
 - (void)animationSelected:(NSInteger)row{
-    CASpringAnimation * springAnimation = [CASpringAnimation animationWithKeyPath:@"position"];
     CGFloat damping = 0.0;
     CGFloat stiffness = 0.0;
     CGFloat mass = 0.0;
@@ -135,6 +139,7 @@
         default:
             break;
     }
+    CASpringAnimation * springAnimation = [CASpringAnimation animationWithKeyPath:@"position"];
     springAnimation.damping = damping;
     springAnimation.stiffness = stiffness;
     springAnimation.mass = mass;
@@ -142,10 +147,6 @@
     springAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(self.redView.layer.position.x, self.redView.layer.position.y + 200)];
     springAnimation.duration = springAnimation.settlingDuration;
     [self.redView.layer addAnimation:springAnimation forKey:springAnimation.keyPath];
-    
-   
-    
-
 }
 
 

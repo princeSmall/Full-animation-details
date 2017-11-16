@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BasicAnimationViewController.h"
 #import "SpringAnimationViewController.h"
+#import "KeyFrameAnimationViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView * animationTableView;
@@ -33,7 +34,7 @@
 }
 - (NSArray *)animationArray{
     if (_animationArray == nil) {
-        _animationArray = [NSArray arrayWithObjects:@"basicAnimation",@"SpringAnimation", nil];
+        _animationArray = [NSArray arrayWithObjects:@"basicAnimation",@"SpringAnimation",@"KeyFrameAnimation", nil];
     }
     return _animationArray;
 }
@@ -58,6 +59,9 @@
     {
         SpringAnimationViewController * springAnimation = [[SpringAnimationViewController alloc]init];
         [self.navigationController pushViewController:springAnimation animated:YES];
+    }else if (indexPath.row == 2){
+        KeyFrameAnimationViewController * keyFrameAnimation = [[KeyFrameAnimationViewController alloc]init];
+        [self.navigationController pushViewController:keyFrameAnimation animated:YES];
     }
 }
 
