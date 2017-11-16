@@ -36,7 +36,7 @@
 }
 - (NSArray *)animationArray{
     if (_animationArray == nil) {
-        _animationArray = [NSArray arrayWithObjects:@"ArcLine",@"parapolaLine",@"ovalLine",@"RoundLine",@"Timeout", nil];
+        _animationArray = [NSArray arrayWithObjects:@"ArcLine",@"parapolaLine",@"ovalLine",@"RoundLine",@"Timeout",@"strike", nil];
     }
     return _animationArray;
 }
@@ -65,9 +65,36 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < 4) {
         [self keyFrameAnimation:indexPath.row];
-    }else{
+    }else if(indexPath.row == 4){
         [self timeout];
+    }else if (indexPath.row == 5){
+        [self makeUse];
     }
+}
+
+/**
+ draw a strike
+ */
+- (void)makeUse{
+    CAShapeLayer * shapelayer = [CAShapeLayer layer];
+    self.path = [UIBezierPath bezierPath];
+    [self.path moveToPoint:CGPointMake(150, 200)];
+    [self.path addLineToPoint:CGPointMake(170, 220)];
+    [self.path addLineToPoint:CGPointMake(190, 180)];
+    shapelayer.path = self.path.CGPath;
+    shapelayer.fillColor = [UIColor clearColor].CGColor;
+    shapelayer.lineWidth = 4.0f;
+    shapelayer.strokeColor = [UIColor redColor].CGColor;
+    [self.view.layer addSublayer:shapelayer];
+    
+    CABasicAnimation *pathAnima = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    pathAnima.duration = 3.0f;
+    pathAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    pathAnima.fromValue = [NSNumber numberWithFloat:0.0f];
+    pathAnima.toValue = [NSNumber numberWithFloat:1.0f];
+    pathAnima.fillMode = kCAFillModeForwards;
+    pathAnima.removedOnCompletion = NO;
+    [shapelayer addAnimation:pathAnima forKey:@"strokeEndAnimation"];
 }
 
 /**
@@ -96,6 +123,7 @@
     pathAnima.toValue = [NSNumber numberWithFloat:1.0f];
     pathAnima.fillMode = kCAFillModeForwards;
     pathAnima.removedOnCompletion = NO;
+
     [shapeLayer addAnimation:pathAnima forKey:@"strokeEndAnimation"];
 
 }

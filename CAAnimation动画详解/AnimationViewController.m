@@ -6,21 +6,23 @@
 //  Copyright © 2017年 tong. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AnimationViewController.h"
 #import "BasicAnimationViewController.h"
 #import "SpringAnimationViewController.h"
 #import "KeyFrameAnimationViewController.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface AnimationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView * animationTableView;
 @property (nonatomic,strong)NSArray * animationArray;
 
 @end
 
-@implementation ViewController
+@implementation AnimationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"Animation";
     // Do any additional setup after loading the view, typically from a nib.
     [self.view addSubview:self.animationTableView];
 }
