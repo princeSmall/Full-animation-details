@@ -10,6 +10,7 @@
 #import "BasicAnimationViewController.h"
 #import "SpringAnimationViewController.h"
 #import "KeyFrameAnimationViewController.h"
+#import "TransitionAnimationViewController.h"
 
 @interface AnimationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView * animationTableView;
@@ -36,7 +37,7 @@
 }
 - (NSArray *)animationArray{
     if (_animationArray == nil) {
-        _animationArray = [NSArray arrayWithObjects:@"basicAnimation",@"SpringAnimation",@"KeyFrameAnimation", nil];
+        _animationArray = [NSArray arrayWithObjects:@"BasicAnimation",@"SpringAnimation",@"KeyFrameAnimation",@"TransitionAnimation", nil];
     }
     return _animationArray;
 }
@@ -53,17 +54,18 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0)
-    {
+    if (indexPath.row == 0){
         BasicAnimationViewController * basicAnimation = [[BasicAnimationViewController alloc]init];
         [self.navigationController pushViewController:basicAnimation animated:YES];
-    }else if (indexPath.row == 1)
-    {
+    }else if (indexPath.row == 1){
         SpringAnimationViewController * springAnimation = [[SpringAnimationViewController alloc]init];
         [self.navigationController pushViewController:springAnimation animated:YES];
     }else if (indexPath.row == 2){
         KeyFrameAnimationViewController * keyFrameAnimation = [[KeyFrameAnimationViewController alloc]init];
         [self.navigationController pushViewController:keyFrameAnimation animated:YES];
+    }else if (indexPath.row == 3){
+        TransitionAnimationViewController * transitionAnimation = [[TransitionAnimationViewController alloc]init];
+        [self.navigationController pushViewController:transitionAnimation animated:YES];
     }
 }
 
