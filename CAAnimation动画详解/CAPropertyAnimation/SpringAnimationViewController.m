@@ -13,6 +13,8 @@
 @property (nonatomic,strong)NSArray * animationArray;
 @property (nonatomic,strong)UIView * redView;
 
+@property (nonatomic,strong)UIView * blueView;
+
 @end
 
 @implementation SpringAnimationViewController
@@ -22,6 +24,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.springAnimationTableView];
     [self.view addSubview:self.redView];
+    [self.view addSubview:self.blueView];
     // Do any additional setup after loading the view.
 }
 /**
@@ -31,7 +34,7 @@
  */
 - (UITableView *)springAnimationTableView{
     if (_springAnimationTableView == nil) {
-        _springAnimationTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,200, self.view.frame.size.height) style:UITableViewStylePlain];
+        _springAnimationTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,200, self.view.frame.size.height) style:UITableViewStyleGrouped];
         _springAnimationTableView.delegate = self;
         _springAnimationTableView.dataSource = self;
     }
@@ -39,7 +42,7 @@
 }
 - (NSArray *)animationArray{
     if (_animationArray == nil) {
-        _animationArray = [NSArray arrayWithObjects:@"Mass",@"Stiffness", @"Damping",@"initialVelocity",@"UIViewAnimation",nil];
+        _animationArray = [NSArray arrayWithObjects:@"Mass",@"Stiffness", @"Damping",@"initialVelocity",@"UIViewAnimationMove",@"UIViewAnimationBounds",nil];
     }
     return _animationArray;
 }
@@ -49,6 +52,13 @@
         _redView.backgroundColor = [UIColor redColor];
     }
     return _redView;
+}
+- (UIView *)blueView{
+    if (_blueView == nil) {
+        _blueView = [[UIView alloc]initWithFrame:CGRectMake(10, 450, 20, 20)];
+        _blueView.backgroundColor = [UIColor blueColor];
+    }
+    return _blueView;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.animationArray.count;
@@ -65,7 +75,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < 4) {
         [self animationSelected:indexPath.row];
-    }else{
+    }else if (indexPath.row == 4){
         //        duration: 动画时长
         //        delay: 动画延迟
         //        damping: 弹簧效果
@@ -76,9 +86,27 @@
             point.y += 150;
             [self.redView setCenter:point];
         } completion:^(BOOL finished) {
-            [self.redView setCenter:CGPointMake(250 + 49, 250 + 49)];
+            CGPoint point =self.redView.center;
+            point.y -= 150;
+            [self.redView setCenter:point];
             [self.redView setBackgroundColor:[UIColor redColor]];
         }];
+    }else {
+        [UIView animateWithDuration:1 animations:^{
+            CGRect rect = self.blueView.frame;
+            rect.size.width += self.view.frame.size.width;
+            rect.size.height += self.view.frame.size.height;
+            [self.blueView setFrame:rect];
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:1 animations:^{
+                CGRect rect = self.blueView.frame;
+                rect.size.width -= self.view.frame.size.width;
+                rect.size.height -= self.view.frame.size.height;
+                [self.blueView setFrame:rect];
+            }];
+        }];
+        
+      
     }
     
 }
