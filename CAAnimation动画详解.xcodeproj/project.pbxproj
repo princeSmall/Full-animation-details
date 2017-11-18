@@ -100,10 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				5D5B2AE31FBE89DC00498E7C /* KeyFrameAnimationViewController.h */,
-				5D5B2AE41FBE89DC00498E7C /* SpringAnimationViewController.h */,
-				5D5B2AE51FBE89DC00498E7C /* BasicAnimationViewController.h */,
-				5D5B2AE61FBE89DC00498E7C /* SpringAnimationViewController.m */,
 				5D5B2AE71FBE89DC00498E7C /* KeyFrameAnimationViewController.m */,
+				5D5B2AE41FBE89DC00498E7C /* SpringAnimationViewController.h */,
+				5D5B2AE61FBE89DC00498E7C /* SpringAnimationViewController.m */,
+				5D5B2AE51FBE89DC00498E7C /* BasicAnimationViewController.h */,
 				5D5B2AE81FBE89DC00498E7C /* BasicAnimationViewController.m */,
 			);
 			path = CAPropertyAnimation;

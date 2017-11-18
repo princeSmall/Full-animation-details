@@ -122,4 +122,86 @@ draw  a curve
     width = height
  
    
+### TransitionAnimation
+
+* duration
+
+<pre>设置动画时间</pre>
+
+* type
+
+<pre>设置运动类型
+
+1、公有API的Type
+
+    Fade,                       淡入淡出
+    Push,                       推挤
+    Reveal,                     揭开
+    MoveIn,                     覆盖
+    
+2、私有API的Type
+
+    Cube,                       立方体
+    SuckEffect,                 吮吸
+    OglFlip,                    翻转
+    RippleEffect,               波纹
+    PageCurl,                   翻页
+    PageUnCurl,                 反翻页
+    CameraIrisHollowOpen,       开镜头
+    CameraIrisHollowClose,      关镜头
+    
+3、UIView翻页Type
+
+    CurlDown,                   下翻页
+    CurlUp,                     上翻页
+    FlipFromLeft,               左翻转
+    FlipFromRight,              右翻转
+</pre>
+    
+* subtype
+
+<pre>设置运动方向
+
+    kCATransitionFromLeft
+    kCATransitionFromBottom
+    kCATransitionFromRight
+    kCATransitionFromTop
+    
+</pre>
+
+* timingFunction
+
+<pre>设置运动轨迹
+
+ kCAMediaTimingFunctionLinear            线性,即匀速
+ kCAMediaTimingFunctionEaseIn            先慢后快
+ kCAMediaTimingFunctionEaseOut           先快后慢
+ kCAMediaTimingFunctionEaseInEaseOut     先慢后快再慢
+ kCAMediaTimingFunctionDefault           实际效果是动画中间比较快.
  
+</pre>
+    
+    
+4、使用方法
+
+    - (void) transitionWithType:(NSString *)type WithSubtype:(NSString *)subtype ForView:(UIView *)view{
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.7f;
+    animation.type = type;
+    if (subtype != nil) {
+        animation.subtype = subtype;
+    }
+    [view.layer addAnimation:animation forKey:@"animation"];
+     }
+     
+5、实例应用，UIView上下左右翻页
+
+    - (void) animationWithView : (UIView *)view WithAnimationTransition : (UIViewAnimationTransition) transition{
+    [UIView animateWithDuration:1.0f animations:^{
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationTransition:transition forView:view cache:YES];
+    } completion:^(BOOL finished) {
+        self.title = @"0000";
+    }];
+    }
+

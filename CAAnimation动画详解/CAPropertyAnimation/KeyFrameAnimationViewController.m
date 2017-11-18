@@ -15,6 +15,7 @@
 @property (nonatomic,strong)UIBezierPath * path;
 
 
+
 @end
 
 @implementation KeyFrameAnimationViewController
@@ -48,6 +49,7 @@
     }
     return _redView;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.animationArray.count;
 }
@@ -69,8 +71,11 @@
         [self timeout];
     }else if (indexPath.row == 5){
         [self makeUse];
+    }else if (indexPath.row == 6){
+        
     }
 }
+
 
 /**
  draw a strike
