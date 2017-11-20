@@ -12,6 +12,7 @@
 #import "KeyFrameAnimationViewController.h"
 #import "TransitionAnimationViewController.h"
 #import "ProgressAnimationViewController.h"
+#import "GroupAnimationViewController.h"
 
 @interface AnimationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView * animationTableView;
@@ -38,7 +39,7 @@
 }
 - (NSArray *)animationArray{
     if (_animationArray == nil) {
-        _animationArray = [NSArray arrayWithObjects:@"BasicAnimation",@"SpringAnimation",@"KeyFrameAnimation",@"TransitionAnimation",@"ProgressAnimation", nil];
+        _animationArray = [NSArray arrayWithObjects:@"BasicAnimation",@"SpringAnimation",@"KeyFrameAnimation",@"TransitionAnimation",@"ProgressAnimation",@"GroupAnimation", nil];
     }
     return _animationArray;
 }
@@ -70,7 +71,11 @@
     }else if (indexPath.row == 4){
         ProgressAnimationViewController * progressAnimation = [[ProgressAnimationViewController alloc]init];
         [self.navigationController pushViewController:progressAnimation animated:YES];
+    }else if (indexPath.row == 5){
+        GroupAnimationViewController * groupAnimation = [[GroupAnimationViewController alloc]init];
+        [self.navigationController pushViewController:groupAnimation animated:YES];
     }
+    
 }
 
 

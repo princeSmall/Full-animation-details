@@ -1,9 +1,11 @@
+
+![animation](./GIF/CAAnimation.png)
+![animation](./GIF/Animation.gif)
+![animation](./GIF/keyFrame.gif)
+![animation](./GIF/Progress.gif)
+![animation](./GIF/GroupAnimation.gif)
+
 ### BasicAnimation
-
-![animation](./Animation.gif)
-![animation](./keyFrame.gif)
-![animation](./Progress.gif)
-
 1、keyPath
 
        rotation 旋轉
@@ -334,3 +336,47 @@ CAShaperLayer也就是在现有的图层上再次添加或覆盖一层以达到�
 </pre>
 
 
+### GroupAnimation
+
+    animations：动画集合数组
+    
+
+#### draw a heart
+
+<pre>
+- (void)drawRect:(CGRect)rect {
+    // 间距
+    CGFloat padding = 4.0;
+    // 半径(小圆半径)
+    CGFloat curveRadius = (rect.size.width - 2 * padding)/4.0;
+    UIBezierPath *heartPath = [UIBezierPath bezierPath];
+    // 起点
+    CGPoint tipLocation = CGPointMake(rect.size.width/2, rect.size.height-padding);
+    // 从起点开始画
+    [heartPath moveToPoint:tipLocation];
+    // (左圆的第二个点)
+    CGPoint topLeftCurveStart = CGPointMake(padding, rect.size.height/2.4);
+    // 添加二次曲线
+    [heartPath addQuadCurveToPoint:topLeftCurveStart controlPoint:CGPointMake(topLeftCurveStart.x, topLeftCurveStart.y + curveRadius)];
+    // 画圆
+    [heartPath addArcWithCenter:CGPointMake(topLeftCurveStart.x+curveRadius, topLeftCurveStart.y) radius:curveRadius startAngle:M_PI endAngle:0 clockwise:YES];
+    // (左圆的第二个点)
+    CGPoint topRightCurveStart = CGPointMake(topLeftCurveStart.x + 2*curveRadius, topLeftCurveStart.y);
+    // 画圆
+    [heartPath addArcWithCenter:CGPointMake(topRightCurveStart.x+curveRadius, topRightCurveStart.y) radius:curveRadius startAngle:M_PI endAngle:0 clockwise:YES];
+    // 右上角控制点
+    CGPoint topRightCurveEnd = CGPointMake(topLeftCurveStart.x + 4*curveRadius, topRightCurveStart.y);
+    // 添加二次曲线
+    [heartPath addQuadCurveToPoint:tipLocation controlPoint:CGPointMake(topRightCurveEnd.x, topRightCurveEnd.y+curveRadius)];
+    // 设置填充色
+    [[UIColor redColor] setFill];
+    [heartPath fill];
+    
+    heartPath.lineWidth = 2;
+    heartPath.lineCapStyle  = kCGLineCapRound;
+    heartPath.lineJoinStyle = kCGLineJoinRound;
+    [[UIColor yellowColor] setStroke];
+    [heartPath stroke];
+    
+}
+</pre>

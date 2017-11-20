@@ -72,37 +72,36 @@
              //旋转
         case 0:
             animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.x"];
-            //setFromValue不设置,默认以当前状态为准
             [animation setToValue:@(2 * M_PI)];
             break;
         case 1:
             animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-            //setFromValue不设置,默认以当前状态为准
             [animation setToValue:@(2 * M_PI)];
             break;
         case 2:
             animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-            //setFromValue不设置,默认以当前状态为准
             [animation setToValue:@(2 * M_PI)];
             break;
         case 3:
             //平移
             animation = [CABasicAnimation animationWithKeyPath:@"position"];
-            //setFromValue不设置,默认以当前状态为准
             [animation setToValue:[NSValue valueWithCGPoint:CGPointMake(self.redView.center.x, self.redView.center.y + 200)]];
             break;
         case 4:
+            // 透明度
             animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
             [animation setFromValue:@1.0];
             [animation setToValue:@0.1];
             break;
         case 5:
+            // 背景颜色
             animation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
             animation.fromValue = (__bridge id _Nullable)([UIColor redColor].CGColor);
             animation.toValue = (__bridge id _Nullable)([UIColor greenColor].CGColor);
            
             break;
         case 6:
+            // 缩放
             animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
             [animation setFromValue:@1.0];
             [animation setToValue:@0.1];
@@ -118,6 +117,7 @@
             [animation setToValue:@0.1];
             break;
         case 9:
+            // 弹性
             animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
             [animation setToValue:[NSValue valueWithCGRect:CGRectMake(self.redView.frame.origin.x, self.redView.frame.origin.y, 200, 200)]];
             break;
