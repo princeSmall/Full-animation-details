@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"KeyAnimation";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.keyFrameAnimationTableView];
     [self.view addSubview:self.redView];
@@ -37,7 +38,7 @@
 }
 - (NSArray *)animationArray{
     if (_animationArray == nil) {
-        _animationArray = [NSArray arrayWithObjects:@"ArcLine",@"parapolaLine",@"ovalLine",@"RoundLine",@"Timeout",@"strike", nil];
+        _animationArray = [NSArray arrayWithObjects:@"ArcLine-画弧形",@"parapolaLine-画抛物线",@"ovalLine-画椭圆",@"RoundLine-画圆形",@"Timeout-画圆线",@"strike-画对勾", nil];
     }
     return _animationArray;
 }

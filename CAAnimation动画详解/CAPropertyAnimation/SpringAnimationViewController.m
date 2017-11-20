@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"SpringAnimation";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.springAnimationTableView];
     [self.view addSubview:self.redView];

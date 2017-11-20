@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"Animation";
+    self.title = @"CAAnimation动画";
     // Do any additional setup after loading the view, typically from a nib.
     [self.view addSubview:self.animationTableView];
 }
@@ -39,7 +39,7 @@
 }
 - (NSArray *)animationArray{
     if (_animationArray == nil) {
-        _animationArray = [NSArray arrayWithObjects:@"BasicAnimation",@"SpringAnimation",@"KeyFrameAnimation",@"TransitionAnimation",@"ProgressAnimation",@"GroupAnimation", nil];
+        _animationArray = [NSArray arrayWithObjects:@"BasicAnimation-基础动画",@"SpringAnimation-移动动画",@"KeyFrameAnimation-关键帧动画",@"TransitionAnimation-过渡动画",@"ProgressAnimation-进度条动画",@"GroupAnimation-组合动画", nil];
     }
     return _animationArray;
 }

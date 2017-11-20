@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"TransitionAnimation";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.transitionAnimationTableView];
     [self.view addSubview:self.imageView];

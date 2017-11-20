@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"BasicAnimation";
     self.view.backgroundColor =[ UIColor whiteColor];
     [self.view addSubview:self.basicAnimationTableView];
     [self.view addSubview:self.redView];
