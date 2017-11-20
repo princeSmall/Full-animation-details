@@ -18,6 +18,10 @@
 		5D5B2AEB1FBE89DC00498E7C /* KeyFrameAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AE71FBE89DC00498E7C /* KeyFrameAnimationViewController.m */; };
 		5D5B2AEC1FBE89DC00498E7C /* BasicAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AE81FBE89DC00498E7C /* BasicAnimationViewController.m */; };
 		5D5B2AEF1FBE8A2500498E7C /* TransitionAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AEE1FBE8A2500498E7C /* TransitionAnimationViewController.m */; };
+		5D5B2AF31FBFE00800498E7C /* ProgressAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AF21FBFE00800498E7C /* ProgressAnimationViewController.m */; };
+		5D5B2AF61FBFE0F100498E7C /* ProgressAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AF51FBFE0F100498E7C /* ProgressAnimationView.m */; };
+		5D5B2AF91FC0373300498E7C /* ProgressAnimationBallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2AF81FC0373300498E7C /* ProgressAnimationBallView.m */; };
+		5D5B2B021FC1230C00498E7C /* ProgressAnimationTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5B2B011FC1230C00498E7C /* ProgressAnimationTimeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,14 @@
 		5D5B2AE81FBE89DC00498E7C /* BasicAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicAnimationViewController.m; sourceTree = "<group>"; };
 		5D5B2AED1FBE8A2500498E7C /* TransitionAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionAnimationViewController.h; sourceTree = "<group>"; };
 		5D5B2AEE1FBE8A2500498E7C /* TransitionAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimationViewController.m; sourceTree = "<group>"; };
+		5D5B2AF11FBFE00800498E7C /* ProgressAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressAnimationViewController.h; sourceTree = "<group>"; };
+		5D5B2AF21FBFE00800498E7C /* ProgressAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressAnimationViewController.m; sourceTree = "<group>"; };
+		5D5B2AF41FBFE0F100498E7C /* ProgressAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressAnimationView.h; sourceTree = "<group>"; };
+		5D5B2AF51FBFE0F100498E7C /* ProgressAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressAnimationView.m; sourceTree = "<group>"; };
+		5D5B2AF71FC0373300498E7C /* ProgressAnimationBallView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressAnimationBallView.h; sourceTree = "<group>"; };
+		5D5B2AF81FC0373300498E7C /* ProgressAnimationBallView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressAnimationBallView.m; sourceTree = "<group>"; };
+		5D5B2B001FC1230C00498E7C /* ProgressAnimationTimeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressAnimationTimeView.h; sourceTree = "<group>"; };
+		5D5B2B011FC1230C00498E7C /* ProgressAnimationTimeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressAnimationTimeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +92,7 @@
 				5D5B2AE21FBE89DC00498E7C /* CAPropertyAnimation */,
 				5D5B2AE91FBE89DC00498E7C /* CATransition */,
 				5D5B2AC11FBB18EB00498E7C /* Main.storyboard */,
+				5D5B2AF01FBFDFF400498E7C /* ProgressAnimation */,
 				5D5B2AC71FBB18EB00498E7C /* Assets.xcassets */,
 				5D5B2AC91FBB18EB00498E7C /* LaunchScreen.storyboard */,
 				5D5B2ACC1FBB18EB00498E7C /* Info.plist */,
@@ -116,6 +129,21 @@
 				5D5B2AEE1FBE8A2500498E7C /* TransitionAnimationViewController.m */,
 			);
 			path = CATransition;
+			sourceTree = "<group>";
+		};
+		5D5B2AF01FBFDFF400498E7C /* ProgressAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				5D5B2AF11FBFE00800498E7C /* ProgressAnimationViewController.h */,
+				5D5B2AF21FBFE00800498E7C /* ProgressAnimationViewController.m */,
+				5D5B2AF41FBFE0F100498E7C /* ProgressAnimationView.h */,
+				5D5B2AF51FBFE0F100498E7C /* ProgressAnimationView.m */,
+				5D5B2AF71FC0373300498E7C /* ProgressAnimationBallView.h */,
+				5D5B2AF81FC0373300498E7C /* ProgressAnimationBallView.m */,
+				5D5B2B001FC1230C00498E7C /* ProgressAnimationTimeView.h */,
+				5D5B2B011FC1230C00498E7C /* ProgressAnimationTimeView.m */,
+			);
+			path = ProgressAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,9 +219,13 @@
 			files = (
 				5D5B2AEA1FBE89DC00498E7C /* SpringAnimationViewController.m in Sources */,
 				5D5B2AC01FBB18EB00498E7C /* AnimationViewController.m in Sources */,
+				5D5B2AF31FBFE00800498E7C /* ProgressAnimationViewController.m in Sources */,
 				5D5B2AEF1FBE8A2500498E7C /* TransitionAnimationViewController.m in Sources */,
+				5D5B2AF61FBFE0F100498E7C /* ProgressAnimationView.m in Sources */,
+				5D5B2B021FC1230C00498E7C /* ProgressAnimationTimeView.m in Sources */,
 				5D5B2AEC1FBE89DC00498E7C /* BasicAnimationViewController.m in Sources */,
 				5D5B2AEB1FBE89DC00498E7C /* KeyFrameAnimationViewController.m in Sources */,
+				5D5B2AF91FC0373300498E7C /* ProgressAnimationBallView.m in Sources */,
 				5D5B2AC61FBB18EB00498E7C /* CAAnimation____.xcdatamodeld in Sources */,
 				5D5B2ACE1FBB18EB00498E7C /* main.m in Sources */,
 				5D5B2ABD1FBB18EB00498E7C /* AppDelegate.m in Sources */,

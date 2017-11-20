@@ -110,15 +110,19 @@
         switch (indexPath.row) {
             case 0:
                 [self transitionWithType:kCATransitionFade WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"Fade";
                 break;
             case 1:
                  [self transitionWithType:kCATransitionPush WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"Push";
                 break;
             case 2:
                  [self transitionWithType:kCATransitionReveal WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"Reveal";
                 break;
             case 3:
                 [self transitionWithType:kCATransitionMoveIn WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"MoveIn";
                 break;
                 
             default:
@@ -128,28 +132,36 @@
         switch (indexPath.row) {
             case 0:
                  [self transitionWithType:@"cube" WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                self.title = @"Cube";
                 break;
             case 1:
                  [self transitionWithType:@"suckEffect" WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"SuckEffect";
                 break;
             case 2:
                 [self transitionWithType:@"oglFlip" WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"OglFlip";
                 break;
             case 3:
                  [self transitionWithType:@"rippleEffect" WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"RippleEffect";
                 break;
             case 4:
                 [self transitionWithType:@"pageCurl" WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"PageCurl";
                 break;
             case 5:
                   [self transitionWithType:@"pageUnCurl" WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"PageUnCurl";
                 break;
             case 6:
                 [self transitionWithType:@"cameraIrisHollowOpen" WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"CameraIrisHollowClose";
                 break;
                 
             case 7:
                 [self transitionWithType:@"cameraIrisHollowClose" WithSubtype:kCATransitionFromLeft ForView:self.imageView];
+                 self.title = @"CameraIrisHollowClose";
                 break;
                 
             default:
@@ -159,15 +171,19 @@
         switch (indexPath.row) {
             case 0:
                  [self animationWithView:self.imageView WithAnimationTransition:UIViewAnimationTransitionCurlDown];
+                 self.title = @"CurlDown";
                 break;
             case 1:
                   [self animationWithView:self.imageView WithAnimationTransition:UIViewAnimationTransitionCurlUp];
+                 self.title = @"CurlUp";
                 break;
             case 2:
                  [self animationWithView:self.imageView WithAnimationTransition:UIViewAnimationTransitionFlipFromLeft];
+                 self.title = @"FlipFromLeft";
                 break;
             case 3:
                  [self animationWithView:self.imageView WithAnimationTransition:UIViewAnimationTransitionFlipFromRight];
+                 self.title = @"FlipFromRight";
                 break;
                 
             default:
@@ -207,7 +223,7 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         [UIView setAnimationTransition:transition forView:view cache:YES];
     } completion:^(BOOL finished) {
-        self.title = @"0000";
+        
     }];
 }
 

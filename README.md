@@ -1,6 +1,7 @@
 ### BasicAnimation
 
 ![animation](./Animation.gif)
+![animation](./Progress.gif)
 
 1、keyPath
 
@@ -204,4 +205,131 @@ draw  a curve
         self.title = @"0000";
     }];
     }
+    
+    
+### ProgressAnimation
+
+#### UIBezierPath方法详解
+UIBezierPath 顾名思义，这是用贝塞尔曲线的方式来构建一段弧线，你可以用任意条弧线来组成你想要的形状
+
+    -(void)addArcWithCenter:(CGPoint)center radius:(CGFloat)radius startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle clockwise:(BOOL)clockwise
+    center 圆弧圆心
+    radius 圆弧半径
+    startAngle 开始弧度
+    endAngle 结束弧度
+    closewise 是否顺时针
+    
+    -(void)fill
+    填充颜色
+    -(void)stroke
+    线条颜色
+    
+注: 使用UIBezierPath绘画的代码写在自定义视图的drawRect:方法中
+    
+#### CAShaperLayer 
+
+CAShaperLayer也就是在现有的图层上再次添加或覆盖一层以达到界面在显示时会呈现出不同形状的效果   
+
+     fillColor 填充颜色
+     strokeColor 边框颜色
+     lineWidth 线条宽度
+     path 线条曲线
+     strokeStart 开始角度
+     strokeEnd 结束角度
+
+注：进度条主要就以上方法
+
+#### 圆形进度条生成
+1. UIBezierPath根据进度条随时改变开始弧度和结束弧度，不设置中心point
+
+<pre>
+- (void)drawRect:(CGRect)rect {
+    CGPoint point = CGPointMake(100, 100);
+    CGFloat radius = 95.0f;
+    
+    UIBezierPath *ballPath = [UIBezierPath bezierPathWithArcCenter:point radius:radius startAngle:self.startAngle endAngle:self.endAngle clockwise:YES];
+    
+    [[UIColor greenColor]set];
+    [ballPath fill];
+    
+    //    在球形的外面绘制一个描边空心的圆形，不然很难看
+    UIBezierPath *strokePath = [UIBezierPath bezierPathWithArcCenter:point radius:radius startAngle:0 endAngle:-0.00000001 clockwise:YES];
+    [[UIColor lightGrayColor]set];
+    [strokePath stroke];
+}
+
+
+-(void)setStartMove:(CGFloat)value{
+    
+    //    设置起始点，位置是根据进度动态变换的
+    self.startAngle = M_PI_2 - value * M_PI;
+    self.endAngle = M_PI_2 + value * M_PI;
+    
+    [self setNeedsDisplay];
+}
+</pre>
+
+#### 扇形进度条生成
+1. UIBezierPath根据进度条随时改变结束弧度，设置中心point
+
+<pre>
+-(void)drawRect:(CGRect)rect{
+    CGPoint point = CGPointMake(100 , 100);
+    CGFloat radius = 95.0f;
+    CGFloat startAngle = - M_PI_2;
+    CGFloat endAngle = startAngle + self.endAngle;
+    UIBezierPath * path = [UIBezierPath bezierPathWithArcCenter:point radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES];
+    [path addLineToPoint:point];
+    [[UIColor greenColor]set];
+    [path fill];
+    UIBezierPath *strokePath = [UIBezierPath bezierPathWithArcCenter:point radius:radius startAngle:0 endAngle:-0.00000001 clockwise:YES];
+    [[UIColor lightGrayColor]set];
+    [strokePath stroke];
+    
+}
+- (void)setStartMove:(CGFloat)value{
+    self.endAngle = value * M_PI * 2;
+    [self setNeedsDisplay];
+}
+</pre>
+
+#### 弧形进度条生成
+
+1. 先画一个封闭的背景圆self.backShaperLayer
+2. 根据圆弧先设置self.shaperLayer的开始，根据进度条的改变随时改变结束弧度
+
+<pre>
+- (void)drawRect:(CGRect)rect{
+
+    self.shapeLayer = [CAShapeLayer layer];
+    self.shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    self.shapeLayer.lineWidth = 6.0f;
+    self.shapeLayer.strokeColor = [UIColor greenColor].CGColor;
+    
+  
+    self.backShapeLayer = [CAShapeLayer layer];
+    self.backShapeLayer.fillColor = [UIColor clearColor].CGColor;
+    self.backShapeLayer.lineWidth = 6.0f;
+    self.backShapeLayer.strokeColor = [UIColor darkGrayColor].CGColor;
+
+
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    [path addArcWithCenter:CGPointMake(50, 50) radius:40 startAngle:0 endAngle:M_PI * 2 clockwise:YES];
+    
+    self.shapeLayer.path = path.CGPath;
+    self.shapeLayer.strokeStart = 0;
+    self.shapeLayer.strokeEnd = self.toValue;
+    self.backShapeLayer.path = path.CGPath;
+    self.backShapeLayer.strokeStart = 0;
+    self.backShapeLayer.strokeEnd = 1;
+    [self.layer addSublayer:self.backShapeLayer];
+    [self.layer addSublayer:self.shapeLayer];
+
+}
+- (void)setStartMove:(CGFloat)value{
+    self.toValue = value;
+    [self setNeedsDisplay];
+}
+</pre>
+
 
